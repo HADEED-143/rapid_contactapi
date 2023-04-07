@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<p>are you want to sure delete {{ contact }}?</p>
+
+<form action="{% url 'Delete' contact.id %}" method="POST">
+    {% csrf_token %}
+    <a href="{% url 'Dashboard' %}">Cancel</a>
+    <input type="submit" name="confirm">
+</form>
+{% endblock %}
